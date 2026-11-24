@@ -1,0 +1,48 @@
+FINANCE 360 RC0.4.0 — PACOTE PWA
+=================================
+
+CONTEÚDO
+- index.html: aplicativo FINANCE 360 RC0.4.0
+- manifest.webmanifest: identidade e configuração de instalação
+- sw.js: cache do aplicativo para abertura offline
+- icons/: ícones para Android, navegadores e iOS
+
+COMO PUBLICAR
+1. Extraia todos os arquivos mantendo a estrutura de pastas.
+2. Publique o conteúdo da pasta em uma hospedagem estática com HTTPS.
+3. Não abra index.html diretamente por file://: PWA e Service Worker exigem HTTPS
+   (localhost é a exceção técnica para desenvolvimento).
+4. Abra o endereço HTTPS no navegador do celular/tablet com internet pelo menos uma vez.
+
+INSTALAR
+Android (Chrome/Edge):
+- Abra o endereço HTTPS.
+- Toque em "Instalar app" no FINANCE 360 ou no menu do navegador.
+- Confirme a instalação. O ícone aparecerá na tela inicial.
+
+iPhone/iPad (Safari):
+- Abra o endereço HTTPS no Safari.
+- Toque em Compartilhar.
+- Escolha "Adicionar à Tela de Início" e confirme.
+
+COMO FUNCIONA OFFLINE
+- A primeira abertura com internet instala o cache do app.
+- Depois, a estrutura do aplicativo pode abrir sem conexão.
+- Consulta de dólar e Pesquisa Google dependem de internet.
+- Os dados financeiros, agenda, investimentos e reservas permanecem no armazenamento
+  local do navegador/dispositivo.
+
+ATENÇÃO AOS DADOS
+- PWA não sincroniza automaticamente celular e tablet. Cada dispositivo mantém seu
+  próprio armazenamento local. Para transferir dados, use o backup e restauração.
+- O armazenamento local e o arquivo JSON de backup não têm criptografia própria.
+- O app de agendamento coleta dados pessoais de clientes. Antes de uso comercial,
+  implemente controles de acesso, proteção do dispositivo, retenção e procedimento
+  de backup adequados à LGPD.
+- Publicar os arquivos em HTTPS hospeda o aplicativo; os dados locais do usuário não
+  são enviados automaticamente para a hospedagem.
+
+ATUALIZAÇÕES
+- Quando uma nova versão for publicada, o Service Worker atualizará o cache.
+- Para alterações de versão, publique juntos index.html, manifest.webmanifest,
+  sw.js e a pasta icons.
